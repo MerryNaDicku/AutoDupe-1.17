@@ -17,8 +17,6 @@ import static codes.waves.autodupe.AutoDupe.mc;
 public class KeyboardMixin {
     @Inject(method = "onKey", at = @At("HEAD"), cancellable = true)
     public void onKey(long window, int key, int scancode, int action, int modifiers, CallbackInfo info) {
-        System.out.println("balls");
-
         if (action != GLFW.GLFW_PRESS)
             return;
 

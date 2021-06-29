@@ -64,7 +64,7 @@ public class Duping {
         if (!(mc.currentScreen instanceof AnvilScreen))
         {
             if (attemptIndex > 0)
-                mc.player.sendMessage(new LiteralText(String.format("&8[&dAD&8]&d Duping complete after %d attempts.".replace("&", "§"), attemptIndex)), false);
+                mc.player.sendMessage(new LiteralText(String.format("&8[&dAD&8]&d Duping complete after %d attempts.".replace("&", "§"), attemptIndex+1)), false);
             else
                 mc.player.sendMessage(new LiteralText("&8[&dAD&8]&c Duping stopped.".replace("&", "§")), false);
             duping = false;

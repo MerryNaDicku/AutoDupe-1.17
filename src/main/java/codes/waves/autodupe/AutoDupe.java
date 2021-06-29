@@ -18,14 +18,7 @@ public class AutoDupe implements ModInitializer {
     public static EventBus eventBus = new EventBus("codes.waves.autodupe");
     public static MinecraftClient mc = MinecraftClient.getInstance();
     public static Duping duping;
-    private static KeyBinding keyBinding;
-/*    private static KeyBinding keyBinding;*/
 
     @Override
-    public void onInitialize() {
-        System.out.println("hi");
-        System.out.println("AMONGU S BALLz");
-        System.out.println(AnvilScreen.class.getName());
-
-    }
+    public void onInitialize() {}
 }
