@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "autodupe",
+  "version": "${version}",
+
+  "name": "Auto Dupe",
+  "description": "dupes stuff with anvil dupe on 1.17",
+  "authors": [
+    "Waves-rgb @ github.com"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Waves-rgb/AutoDupe-1.17/",
+    "sources": "https://github.com/Waves-rgb/AutoDupe-1.17/tree/main"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "codes.waves.autodupe.AutoDupe"
+    ]
+  },
+  "mixins": [
+    "autodupe.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.17.x",
+    "java": ">=16"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
