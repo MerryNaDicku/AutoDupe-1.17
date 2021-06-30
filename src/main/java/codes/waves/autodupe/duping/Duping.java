@@ -46,8 +46,6 @@ public class Duping {
 
     }
 
-    boolean clickSlotInNext = false;
-
     private int attemptIndex = 0;
 
     @Subscribe
@@ -64,7 +62,7 @@ public class Duping {
         if (!(mc.currentScreen instanceof AnvilScreen))
         {
             if (attemptIndex > 0)
-                mc.player.sendMessage(new LiteralText(String.format("&8[&dAD&8]&d Duping complete after %d attempts.".replace("&", "§"), attemptIndex+1)), false);
+                mc.player.sendMessage(new LiteralText(String.format("&8[&dAD&8]&d Duping complete after %d attempts.".replace("&", "§"),    attemptIndex+1)), false);
             else
                 mc.player.sendMessage(new LiteralText("&8[&dAD&8]&c Duping stopped.".replace("&", "§")), false);
             duping = false;
@@ -94,16 +92,19 @@ public class Duping {
             e.printStackTrace();
         }
 
-        //mc.interactionManager.clickSlot(sh.syncId, inSlot.id, 0, SlotActionType.SWAP, mc.player);
-
-        if (outSlot.hasStack())  {
-            mc.interactionManager.clickSlot(sh.syncId ,outSlot.id, 0, SlotActionType.PICKUP, mc.player);
-            clickSlotInNext = true;
-        }
-
         if (attemptIndex > 0)
             mc.interactionManager.clickSlot(sh.syncId, inSlot.id, 0, SlotActionType.PICKUP, mc.player);
 
-        attemptIndex++;
+        if (mc.player.experienceLevel < 1)
+        {
+            mc.player.sendMessage(new LiteralText("&8[&dAD&8]&c Not enough experience to continue. Stopped.".replace("&", "§")), false);
+            duping = false;
+            return;
+        }
+
+        if (outSlot.hasStack())  {
+            mc.interactionManager.clickSlot(sh.syncId ,outSlot.id, 0, SlotActionType.PICKUP, mc.player);
+            attemptIndex++;
+        }
     }
 }

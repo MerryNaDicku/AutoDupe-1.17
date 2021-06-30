@@ -18,7 +18,15 @@ public class AutoDupe implements ModInitializer {
     public static EventBus eventBus = new EventBus("codes.waves.autodupe");
     public static MinecraftClient mc = MinecraftClient.getInstance();
     public static Duping duping;
+    public static KeyBinding keyBind;
 
     @Override
-    public void onInitialize() {}
+    public void onInitialize() {
+            keyBind = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "Preform dupe",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_F12,
+                "AutoDupe"
+        ));
+    }
 }

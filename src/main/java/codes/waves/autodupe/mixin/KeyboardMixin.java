@@ -20,7 +20,7 @@ public class KeyboardMixin {
         if (action != GLFW.GLFW_PRESS)
             return;
 
-        if (key != GLFW.GLFW_KEY_F12)
+        if (!AutoDupe.keyBind.matchesKey(key, scancode))
             return;
 
         if (!(mc.currentScreen instanceof AnvilScreen))
@@ -28,6 +28,7 @@ public class KeyboardMixin {
             mc.player.sendMessage(new LiteralText("&8[&dAD&8]&c You must be in an anvil screen to use this.".replace("&", "§")), false);
             return;
         }
+
         duping.setDuping(!duping.isDuping());
         if (duping.isDuping())
             mc.player.sendMessage(new LiteralText("&8[&dAD&8]&a Duping started.".replace("&", "§")), false);
